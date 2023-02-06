@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Router, Switch, Route, Redirect } from 'react-router-dom';
+// import { Router, Switch, Route, Redirect } from 'react-router-dom';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+//import { Router, Route,  } from 'react-router-dom';
 import history from '../history';
 import { connect } from 'react-redux';
 import { init } from '../actions';
 import ReactGA from 'react-ga';
+
+import  { Switch } from 'react';//'react-router-dom';
+import { Redirect } from 'react';//'react-router-dom';
 
 import Sidebar from './Sidebar';
 import MenuMobile from './MenuMobile';

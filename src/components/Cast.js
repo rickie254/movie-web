@@ -1,21 +1,25 @@
-import React, { useState, useRef, useEffect } from 'react';
+//import React, { useState, useRef, useEffect } from 'react';
 import Slider from 'react-slick';
 import Loader from './Loader';
 import CastItem from './CastItem';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { useState} from 'react';
+//import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import React, { useRef, useEffect } from 'react';
 const Wrapper = styled.div`
   margin-bottom: 5rem;
 `;
 
 const Credits = ({ cast, baseUrl }) => {
+ /* if (!cast) {
+    return <Loader />;
+  }*/
+  const [totalShow, setTotalShow] = useState(null);
+  const sliderElement = useRef();
   if (!cast) {
     return <Loader />;
   }
-  const [totalShow, setTotalShow] = useState(null);
-  const sliderElement = useRef();
-
   // Set amount of items to show on slider based on the width of the element
   const changeTotalShow = () => {
     let totalItems = Math.round(sliderElement.current.offsetWidth / 70);
@@ -29,11 +33,13 @@ const Credits = ({ cast, baseUrl }) => {
     <CastItem person={person} baseUrl={baseUrl} key={person.id} />
   ));
 
-  useEffect(() => {
+  /*useEffect(() => {
     changeTotalShow();
     window.addEventListener('resize', changeTotalShow);
     return () => window.removeEventListener('resize', changeTotalShow);
-  }, []);
+  },[]);*/
+  
+
 
   const settings = {
     dots: false,
